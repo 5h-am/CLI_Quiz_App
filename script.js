@@ -3139,7 +3139,7 @@ function sub_category_generator(catg){
 function answervalidation(options, correct, userInput) {
   const index = ["a", "b", "c", "d"].indexOf(userInput);
   if (index === -1) return NaN;
-  return options[index].trim().toLowerCase() === correct ? 1 : NaN;
+  return options[index].replaceAll(" ","").toLowerCase() === correct ? 1 : NaN;
 }
 
 
