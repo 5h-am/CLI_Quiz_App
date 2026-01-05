@@ -3136,47 +3136,12 @@ function sub_category_generator(catg){
 	return subcategories;
 }
 
-function answervalidation (o,a,i) {
-	switch (i) {
-		case "a" :
-			if (o[0].replaceAll(" ", "").toLowerCase() === a) {
-				return 1;
-			} else {
-	
-				return NaN;
-			}
-			break;
-		case "b" :
-			if (o[1].replaceAll(" ", "").toLowerCase() === a) {
-				return 1;
-			} else {
-
-				return NaN;
-			}
-			break;
-		case "c" :
-			if (o[2].replaceAll(" ", "").toLowerCase() === a) {
-				return 1;
-			} else {
-				return NaN;
-			}
-			break;
-		case "d" :
-			if (o[3].replaceAll(" ", "").toLowerCase() === a) {
-				return 1;
-			} else {
-				return NaN;
-			}
-			break;
-		default :
-			console.log();
-			console.log("*".repeat(50)+"WARNING"+"*".repeat(50));
-			console.log("\nPlease Enter a Valid Option\n");
-			console.log("=".repeat(100));
-			console.log();
-			return NaN
-	}
+function answervalidation(options, correct, userInput) {
+  const index = ["a", "b", "c", "d"].indexOf(userInput);
+  if (index === -1) return NaN;
+  return options[index].trim().toLowerCase() === correct ? 1 : NaN;
 }
+
 
 function cheater(cat,subcat) {
 	let q = records[`${cat}_questions`][`${subcat}`];
